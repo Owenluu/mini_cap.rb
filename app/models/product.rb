@@ -37,8 +37,10 @@ class Product < ApplicationRecord
     price + tax
   end
 
-  def supplier
-    # Look in the supplier's table for a supplier with an id that matches supplier_id
-    Supplier.find_by(id: supplier_id)
-  end
+  belongs_to :supplier
+
+  # def supplier
+  #   # Look in the supplier's table for a supplier with an id that matches supplier_id
+  #   Supplier.find_by(id: supplier_id)
+  # end
 end
