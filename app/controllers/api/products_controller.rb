@@ -1,22 +1,5 @@
 class Api::ProductsController < ApplicationController
   def index
-    # @products = Product.all
-
-    # if params[:search]
-    #   @products = @products.where("name ILIKE ?", "%#{params[:search]}%")
-    # end
-
-    # if params[:discount] == "true"
-    #   @products = @products.where("price < ?", 250)
-    # end
-
-    # if params[:sort] == "price" && params[:sort_order] == "asc"
-    #   @products = products.order(price: :asc)
-    # elsif params[:sort] == "price" && params[:sort_order] == "desc"
-    #   @products = products.order(price: :desc)
-    # else
-    #   @products = @products.order(id: :asc)
-    # end
     @products = Product
       .title_search(params[:search])
       .discounted(params[:discount])
