@@ -34,7 +34,7 @@ product.save
 product = Product.new({ name: "adidas Ultra Boost 4.0 Game of Thrones White Walkers", price: 265, description: "Deadstock: Size 10" })
 product.save
 
-product = Product.new({ name: "adidas Yeezy Boost 350 V@ Zebra", price: 325, description: "Deadstock: Size 10" })
+product = Product.new({ name: "adidas Yeezy Boost 350 V2 Zebra", price: 325, description: "Deadstock: Size 10" })
 product.save
 
 product = Product.new({ name: "adidas Stan Smith White Green (OG)", price: 50, description: "Deadstock: Size 10" })
