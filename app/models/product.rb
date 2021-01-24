@@ -3,6 +3,28 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
 
+  scope :title_search, ->(search_terms) do
+          if search_terms
+            where("name ILIKE ?", "%#{search_terms}%")
+          end
+        end
+
+  scope :discounted, ->(check_discount) do
+          if check_discount
+            where("price < ?", 10)
+          end
+        end
+
+  scope :sorted, ->(sort, sort_order) do
+          if sort == "price" && sort_order == "asc"
+            order(price: :asc)
+          elsif sort == "price" && sort_order == "desc"
+            order(price: :desc)
+          else
+            order(id: :asc)
+          end
+        end
+
   def is_discounted?
     price <= 200
   end
@@ -13,5 +35,10 @@ class Product < ApplicationRecord
 
   def total
     price + tax
+  end
+
+  def supplier
+    # Look in the supplier's table for a supplier with an id that matches supplier_id
+    Supplier.find_by(id: supplier_id)
   end
 end
