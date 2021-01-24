@@ -1,9 +1,11 @@
-{
-  id: @product.id,
-  name: @product.name,
-  price: number_to_currency(@product.price),
-  tax: @product.tax,
-  total: @product.total,
-  discounted: @product.is_discounted?,
-  description: @product.description,
-}
+render partial: "product.json.jb", locals: { product: @product }
+
+# {
+#   id: @product.id,
+#   name: @product.name,
+#   price: number_to_currency(@product.price),
+#   tax: @product.tax,
+#   total: @product.total,
+#   discounted: @product.is_discounted?,
+#   description: @product.description,
+# }
